@@ -34,7 +34,7 @@ export default function CitiesList() {
             placeholder="Search cities..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-8 w-full max-w-md"
+            className="pl-8 w-full max-w-4xl"
           />
         </div>
         <a href="/data/cities.xlsx" download>

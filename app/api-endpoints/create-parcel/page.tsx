@@ -2,8 +2,12 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from "react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function CreateParcel() {
+  const [error401Type, setError401Type] = useState("NO_API_KEY")
+
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold mb-6 ">Create Parcel</h1>
@@ -128,9 +132,34 @@ export default function CreateParcel() {
               </pre>
             </TabsContent>
             <TabsContent value="401">
+              <div className="mb-2">
+                <Select onValueChange={(value) => setError401Type(value)} defaultValue={error401Type}>
+                  <SelectTrigger className="w-75">
+                    <SelectValue placeholder="Select error type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="NO_API_KEY">API Key not Provided</SelectItem>
+                    <SelectItem value="WRONG_API_KEY">Wrong API Key</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
                 {JSON.stringify(
-                  { error: { message: "API key should be present", reason: "NO_API_KEY", statusCode: 401 } },
+                  error401Type === "NO_API_KEY"
+                    ? {
+                        error: {
+                          message: "API key should be present",
+                          reason: "NO_API_KEY",
+                          statusCode: 401,
+                        },
+                      }
+                    : {
+                        error: {
+                          message: "Wrong api key",
+                          reason: "WRONG_API_KEY",
+                          statusCode: 401,
+                        },
+                      },
                   null,
                   2,
                 )}

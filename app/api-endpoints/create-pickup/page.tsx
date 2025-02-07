@@ -3,8 +3,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Download } from "lucide-react"
+import { useState } from "react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function CreatePickup() {
+  const [error401Type, setError401Type] = useState("NO_API_KEY")
+
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">Create Pickup</h1>
@@ -59,12 +63,18 @@ export default function CreatePickup() {
             Example: <code>WRjbnd2biB2d252a3ZubHd2dm5yc0FDIHNudmp4bm52dnhudm52c</code>
           </li>
         </ul>
-          <h3 className="text-lg font-semibold mt-4 mb-2">Example Responses:</h3>
+        <h3 className="text-lg font-semibold mt-4 mb-2">Example Responses:</h3>
           <Tabs defaultValue="200">
             <TabsList>
-              <TabsTrigger value="200" className="text-green-600">200</TabsTrigger>
-              <TabsTrigger value="400" className="text-red-600">400</TabsTrigger>
-              <TabsTrigger value="401" className="text-red-400">401</TabsTrigger>
+              <TabsTrigger value="200" className="text-green-600">
+                200
+              </TabsTrigger>
+              <TabsTrigger value="400" className="text-red-600">
+                400
+              </TabsTrigger>
+              <TabsTrigger value="401" className="text-red-400">
+                401
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="200">
               <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
@@ -88,9 +98,34 @@ export default function CreatePickup() {
               </pre>
             </TabsContent>
             <TabsContent value="401">
+              <div className="mb-2">
+                <Select  onValueChange={(value) => setError401Type(value)} defaultValue={error401Type}>
+                  <SelectTrigger className="w-75">
+                    <SelectValue placeholder="Select error type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="NO_API_KEY">API Key not Provided</SelectItem>
+                    <SelectItem value="WRONG_API_KEY">Wrong API Key</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
               <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
                 {JSON.stringify(
-                  { error: { message: "API key should be present", reason: "NO_API_KEY", statusCode: 401 } },
+                  error401Type === "NO_API_KEY"
+                    ? {
+                        error: {
+                          message: "API key should be present",
+                          reason: "NO_API_KEY",
+                          statusCode: 401,
+                        },
+                      }
+                    : {
+                        error: {
+                          message: "Wrong api key",
+                          reason: "WRONG_API_KEY",
+                          statusCode: 401,
+                        },
+                      },
                   null,
                   2,
                 )}

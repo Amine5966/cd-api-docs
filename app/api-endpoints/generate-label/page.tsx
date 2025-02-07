@@ -2,8 +2,12 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState } from "react"
 
 export default function GenerateLabel() {
+  const [error401Type, setError401Type] = useState("NO_API_KEY")
+
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-4xl font-bold mb-6 ">Generate Label</h1>
