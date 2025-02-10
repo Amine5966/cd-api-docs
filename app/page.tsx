@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 export default function Home() {
   return (
@@ -31,12 +30,59 @@ export default function Home() {
         </code>
       </pre>
 
-      
+      <h2 className="text-2xl font-semibold my-4">Rate Limiting</h2>
+      <p className="mb-4">
+        Our API enforces rate limits to ensure fair usage and performance.
+      </p>
+
+      <Table className="mb-4">
+        <TableHeader>
+          <TableRow>
+            <TableHead>Time Window</TableHead>
+            <TableHead>Max Requests</TableHead>
+            
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>10 sec</TableCell>
+            <TableCell>30 requests</TableCell>
+           
+          </TableRow>
+          <TableRow>
+            <TableCell>1 min</TableCell>
+            <TableCell>180 requests</TableCell>
+           
+          </TableRow>
+          <TableRow>
+            <TableCell>1 hour</TableCell>
+            <TableCell>10,800 requests</TableCell>
+            
+          </TableRow>
+        </TableBody>
+      </Table>
+
+      <h3 className="text-xl font-semibold my-2">Batch Processing Overview</h3>
+      <ul className="list-disc list-inside mb-4">
+        <li>Each batch can process up to <strong>180 CNs</strong>.</li>
+        <li>You can submit up to <strong>360 batches per hour</strong>.</li>
+        <li>Exceeding these limits will result in a <code>429 Too Many Requests</code> error.</li>
+      </ul>
+
+      <h3 className="text-xl font-semibold my-2">Response Example</h3>
+      <pre className="bg-gray-100 p-4 rounded mb-4">
+        <code>
+          {`HTTP/1.1 429 Too Many Requests
+Retry-After: 10
+X-RateLimit-Limit: 30
+X-RateLimit-Remaining: 0`}
+        </code>
+      </pre>
 
       <h2 className="text-2xl font-semibold my-4">Support</h2>
       <p className="mb-4">
-        If you have any questions or need assistance, please contact our support team at <a href="mailto:service-client@chronodiali.ma" className="text-blue-500">service-client@chronodiali.ma
-        </a>.
+        If you have any questions or need assistance, please contact our support team at 
+        <a href="mailto:service-client@chronodiali.ma" className="text-blue-500"> service-client@chronodiali.ma</a>.
       </p>
 
       <h2 className="text-2xl font-semibold my-4">Additional Resources</h2>
@@ -44,6 +90,5 @@ export default function Home() {
         For more information, visit our <a href="https://apiplayground.shipsy.in/#operations-top" className="text-blue-500">API Playground</a> to test the API in real-time.
       </p>
     </div>
-  )
+  );
 }
-

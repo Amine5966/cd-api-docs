@@ -34,6 +34,11 @@ const sidebarNavItems = [
         method: "GET",
       },
       {
+        title: "Track Parcel",
+        href: "/api-endpoints/track-parcel",
+        method: "GET",
+      },
+      {
         title: "Webhook",
         href: "/api-endpoints/webhook",
         method: "POST",
