@@ -25,7 +25,7 @@ export default function WebhookPayload() {
       <Card>
         <CardHeader>
           <CardTitle className="text-xl font-bold">
-            <span className="text-blue-500">POST</span> /https://mid-ware.vercel.app/
+            <span className="text-green-500">POST</span> /https://mid-ware.vercel.app/
           </CardTitle>
           <CardDescription>Webhook Payload Information</CardDescription>
         </CardHeader>

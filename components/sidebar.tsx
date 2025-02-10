@@ -33,6 +33,11 @@ const sidebarNavItems = [
         href: "/api-endpoints/generate-label",
         method: "GET",
       },
+      {
+        title: "Webhook",
+        href: "/api-endpoints/webhook",
+        method: "POST",
+      },
     ],
   },
   {
@@ -46,11 +51,7 @@ const sidebarNavItems = [
   {
     title: "Cities List",
     href: "/cities-list",
-  },
-  {
-    title: "Webhook Payload",
-    href: "/webhook-payload",
-  },
+  }
 ]
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {

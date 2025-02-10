@@ -35,7 +35,8 @@ export default function Home() {
 
       <h2 className="text-2xl font-semibold my-4">Support</h2>
       <p className="mb-4">
-        If you have any questions or need assistance, please contact our support team at <a href="mailto:digital@chronodiali.ma" className="text-blue-500">digital@chronodiali.ma</a>.
+        If you have any questions or need assistance, please contact our support team at <a href="mailto:service-client@chronodiali.ma" className="text-blue-500">service-client@chronodiali.ma
+        </a>.
       </p>
 
       <h2 className="text-2xl font-semibold my-4">Additional Resources</h2>
