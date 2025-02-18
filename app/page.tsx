@@ -7,18 +7,20 @@ export default function Home() {
       
       <h2 className="text-2xl font-semibold my-4">Overview</h2>
       <p className="mb-4">
-        Welcome to the Chrono Diali API documentation. Our API provides a set of tools to streamline your logistics operations. This documentation will guide you through the various features and functionalities available.
+        Welcome to the Chrono Diali API documentation.
       </p>
-
+      <p className="mb-4">
+      This documentation will guide you through the various features and functionalities available.
+      </p>
       <h2 className="text-2xl font-semibold my-4">Getting Started</h2>
       <p className="mb-4">
         To begin using our API, follow these steps:
       </p>
       <ol className="list-decimal list-inside mb-4">
-        <li>Sign up for an account on our platform.</li>
-        <li>Obtain your API key from the dashboard.</li>
+        <li>Use the API key provided to you by us.</li>
         <li>Refer to the Authentication section to learn how to authenticate your requests.</li>
       </ol>
+
 
       <h2 className="text-2xl font-semibold my-4">Authentication</h2>
       <p className="mb-4">

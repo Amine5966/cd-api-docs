@@ -38,11 +38,11 @@ const sidebarNavItems = [
         href: "/api-endpoints/track-parcel",
         method: "GET",
       },
-      {
+      /*{
         title: "Webhook",
         href: "/api-endpoints/webhook",
         method: "POST",
-      },
+      },*/
     ],
   },
   {
@@ -53,10 +53,10 @@ const sidebarNavItems = [
     title: "Failed Reasons",
     href: "/failed-reasons",
   },
-  {
+  /*{
     title: "Cities List",
     href: "/cities-list",
-  }
+  }*/
 ]
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
