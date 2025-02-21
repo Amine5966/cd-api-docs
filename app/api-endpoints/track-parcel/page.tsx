@@ -17,6 +17,12 @@ export default function TrackParcel() {
           <CardDescription>Track a parcel using its reference number</CardDescription>
         </CardHeader>
         <CardContent>
+          <h3 className="text-lg font-semibold mb-2">Link in api-playground:</h3>
+          <p className="mb-4">
+            <a href="https://apiplayground.shipsy.in/#get-/api/customer/integration/consignment/track" className="text-blue-500">
+            https://apiplayground.shipsy.in/#get-/api/customer/integration/consignment/track
+            </a>
+            </p>
           <h3 className="text-lg font-semibold mb-2">API Servers:</h3>
           <p className="mb-4">
             Production:{" "}

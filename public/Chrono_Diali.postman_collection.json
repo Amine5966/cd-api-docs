@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "b14965bb-4db8-4775-9273-6a1d8d742bf9",
+		"name": "ChronoDiali",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40820190"
+	},
+	"item": [
+		{
+			"name": "Pickups",
+			"item": [
+				{
+					"name": "Create Pickup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n                            {\n                                \"pickup_type\": \"BUSINESS\",\n                                \"customer_code\": \"TESTSJ1\",\n                                \"pickup_address\": {\n                                    \"pincode\": \"110001\",\n                                    \"name\": \"Medha\",\n                                    \"phone\": \"12345\",\n                                    \"address_line_1\": \"Talaat Harb, Marouf, Qasr El Nil Cairo Governorate, Egypt\",\n                                    \"address_line_2\": \"string\",\n                                    \"city\": \"Cairo\",\n                                    \"state\": \"Cairo\",\n                                    \"country\": \"Egypt\"\n                                },\n                                \"load_type\": \"DOCUMENT\",\n                                \"total_items\": \"3\",\n                                \"total_weight\": \"2\",\n                                \"pickup_slot\": {\n                                    \"start\": \"11:00\",\n                                    \"end\": \"23:30\",\n                                    \"date\": \"04/11/2022\"\n                                }\n                            }\n                            ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/customer/integration/pickup/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"integration",
+								"pickup",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parcels",
+			"item": [
+				{
+					"name": "Create Parcel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"action_type\": \"single_pickup\", \"consignment_type\": \"forward\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/customer/integration/consignment/upload/softdata/v2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"integration",
+								"consignment",
+								"upload",
+								"softdata",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"item": [
+				{
+					"name": "Generate Label",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/customer/integration/consignment/shippinglabel/stream?reference_number=AEF12578",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"integration",
+								"consignment",
+								"shippinglabel",
+								"stream"
+							],
+							"query": [
+								{
+									"key": "reference_number",
+									"value": "AEF12578"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracking",
+			"item": [
+				{
+					"name": "Track Parcel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api-key",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/client/integration/consignment/track?reference_number=RCD240102008",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"integration",
+								"consignment",
+								"track"
+							],
+							"query": [
+								{
+									"key": "reference_number",
+									"value": "RCD240102008"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "https://projectxuaeapi.shipsy.io",
+			"type": "string"
+		},
+		{
+			"key": "API_KEY",
+			"value": "your-api-key-here",
+			"type": "string"
+		}
+	]
+}

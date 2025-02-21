@@ -19,6 +19,10 @@ export default function CreateParcel() {
           <CardDescription>Create a new parcel</CardDescription>
         </CardHeader>
         <CardContent>
+        <h3 className="text-lg font-semibold mb-2 ">Link in api-playground:</h3>
+          
+          <p className="mb-4"><a href="https://apiplayground.shipsy.in/#post-/api/customer/integration/consignment/upload/softdata/v2" className="text-blue-500">https://apiplayground.shipsy.in/#post-/api/customer/integration/consignment/upload/softdata/v2</a></p>
+          
           <h3 className="text-lg font-semibold mb-2 ">API Servers:</h3>
           
           <p className="mb-4">Production: <a href="https://projectxuaeapi.shipsy.io" className="text-blue-500">https://projectxuaeapi.shipsy.io</a></p>

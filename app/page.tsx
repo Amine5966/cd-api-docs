@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,8 +19,51 @@ export default function Home() {
         To begin using our API, follow these steps:
       </p>
       <ol className="list-decimal list-inside mb-4">
-        <li>Use the API key provided to you by us.</li>
+        <li>Obtain an API key from Chrono Diali.</li>
         <li>Refer to the Authentication section to learn how to authenticate your requests.</li>
+      </ol>
+
+      <h2 className="text-2xl font-semibold my-4">Postman Collection and Environments</h2>
+      <p className="mb-4">
+        To help you get started quickly, we've prepared Postman files for our API. You can download them using the links
+        below:
+      </p>
+      <ul className="list-disc list-inside space-y-2 mb-4">
+        <li>
+          <a
+            href="/Chrono_Diali.postman_collection.json"
+            download="Chrono_Diali.postman_collection.json"
+            className="text-blue-500 hover:underline"
+          >
+            Download Postman Collection
+          </a>
+        </li>
+        <li>
+          <a
+            href="/ChronoDiali-Production.postman_environment.json"
+            download="ChronoDiali-Production.postman_environment.json"
+            className="text-blue-500 hover:underline"
+          >
+            Download Production Environment
+          </a>
+        </li>
+        <li>
+          <a
+            href="/ChronoDiali-Test.postman_environment.json"
+            download="ChronoDiali-Test.postman_environment.json"
+            className="text-blue-500 hover:underline"
+          >
+            Download Test Environment
+          </a>
+        </li>
+      </ul>
+      <p className="mt-4">To use these files:</p>
+      <ol className="list-decimal list-inside mb-4">
+        <li>Download the files using the buttons above.</li>
+        <li>Open Postman and import the collection and environment files.</li>
+        <li>Select the appropriate environment (Production or Test) in Postman.</li>
+        <li>Set your API key in the environment variables.</li>
+        <li>You can now start making API requests using the imported collection.</li>
       </ol>
 
 
